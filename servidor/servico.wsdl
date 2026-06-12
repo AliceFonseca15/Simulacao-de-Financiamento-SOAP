@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="ServicoConcessionaria"
+    targetNamespace="concessionaria.soap"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="concessionaria.soap"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <message name="listar_veiculosRequest"/>
+    <message name="inserir_veiculoRequest">
+        <part name="tipo" type="xsd:string"/>
+        <part name="marca" type="xsd:string"/>
+        <part name="modelo" type="xsd:string"/>
+        <part name="ano" type="xsd:int"/>
+        <part name="preco" type="xsd:double"/>
+    </message>
+    <message name="simular_financiamentoRequest">
+        <part name="veiculo_id" type="xsd:int"/>
+        <part name="valor_entrada" type="xsd:double"/>
+        <part name="parcelas" type="xsd:int"/>
+    </message>
+    <message name="excluir_veiculoRequest">
+        <part name="id" type="xsd:int"/>
+    </message>
+
+    <message name="listar_veiculosResponse">
+        <part name="result" type="xsd:string"/>
+    </message>
+    <message name="inserir_veiculoResponse">
+        <part name="result" type="xsd:string"/>
+    </message>
+    <message name="simular_financiamentoResponse">
+        <part name="modelo" type="xsd:string"/>
+        <part name="valor_parcela" type="xsd:double"/>
+        <part name="total_pago" type="xsd:double"/>
+    </message>
+    <message name="excluir_veiculoResponse">
+        <part name="result" type="xsd:string"/>
+    </message>
+
+    <portType name="ServicoPortType">
+        <operation name="listar_veiculos">
+            <input message="tns:listar_veiculosRequest"/>
+            <output message="tns:listar_veiculosResponse"/>
+        </operation>
+        <operation name="inserir_veiculo">
+            <input message="tns:inserir_veiculoRequest"/>
+            <output message="tns:inserir_veiculoResponse"/>
+        </operation>
+        <operation name="simular_financiamento">
+            <input message="tns:simular_financiamentoRequest"/>
+            <output message="tns:simular_financiamentoResponse"/>
+        </operation>
+        <operation name="excluir_veiculo">
+            <input message="tns:excluir_veiculoRequest"/>
+            <output message="tns:excluir_veiculoResponse"/>
+        </operation>
+    </portType>
+
+    <binding name="ServicoBinding" type="tns:ServicoPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="listar_veiculos"><soap:operation soapAction="listar_veiculos"/><input><soap:body use="literal"/></input><output><soap:body use="literal"/></output></operation>
+        <operation name="inserir_veiculo"><soap:operation soapAction="inserir_veiculo"/><input><soap:body use="literal"/></input><output><soap:body use="literal"/></output></operation>
+        <operation name="simular_financiamento"><soap:operation soapAction="simular_financiamento"/><input><soap:body use="literal"/></input><output><soap:body use="literal"/></output></operation>
+        <operation name="excluir_veiculo"><soap:operation soapAction="excluir_veiculo"/><input><soap:body use="literal"/></input><output><soap:body use="literal"/></output></operation>
+    </binding>
+
+    <service name="ServicoConcessionaria">
+        <port name="ServicoPort" binding="tns:ServicoBinding">
+            <soap:address location="http://localhost:8000/"/>
+        </port>
+    </service>
+</definitions>
