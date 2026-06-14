@@ -42,8 +42,10 @@ def buscar_veiculo_formatado(db, veiculo_id):
 
 def processar_soap(xml_data):
     xml_string = xml_data.decode("utf-8")
-    
+    print("\n--- XML RECEBIDO PELO SERVIDOR ---")
     print("Recebido XML:", xml_string)
+    print("-----------------------------------\n")
+    
     try:
         root = ET.fromstring(xml_string)
         body = root.find(f".//{{{NS_SOAP}}}Body")
