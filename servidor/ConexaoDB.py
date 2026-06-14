@@ -59,16 +59,17 @@ class ConexaoDB:
 
     def listar_veiculos(self):
         conn = sqlite3.connect(self.DB_FILE)
+        conn.row_factory = sqlite3.Row 
         cursor = conn.cursor()
-        cursor.execute("SELECT id, tipo,marca, modelo, ano, preco FROM veiculos")
-        linhas = cursor.fetchall()
+        cursor.execute("SELECT id, tipo, marca, modelo, ano, preco FROM veiculos")
+        veiculos = cursor.fetchall()
         conn.close()
-        return linhas
+        return veiculos
 
-    def buscar_veiculo_por_id(self,veiculo_id):
+    def buscar_veiculo_por_id(self, veiculo_id):
         conn = sqlite3.connect(self.DB_FILE)
         cursor = conn.cursor()
-        cursor.execute("SELECT tipo,marca, modelo, ano, preco FROM veiculos WHERE id = ?", (veiculo_id,))
+        cursor.execute("SELECT id, tipo, marca, modelo, ano, preco FROM veiculos WHERE id = ?", (veiculo_id,))
         linha = cursor.fetchone()
         conn.close()
         return linha

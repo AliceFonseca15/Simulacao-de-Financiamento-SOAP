@@ -40,20 +40,20 @@
 
     <portType name="ServicoPortType">
         <operation name="listar_veiculos">
-            <input message="tns:listar_veiculosRequest"/>
-            <output message="tns:listar_veiculosResponse"/>
+            <input message="listar_veiculosRequest"/>
+            <output message="listar_veiculosResponse"/>
         </operation>
         <operation name="inserir_veiculo">
-            <input message="tns:inserir_veiculoRequest"/>
-            <output message="tns:inserir_veiculoResponse"/>
+            <input message="inserir_veiculoRequest"/>
+            <output message="inserir_veiculoResponse"/>
         </operation>
         <operation name="simular_financiamento">
-            <input message="tns:simular_financiamentoRequest"/>
-            <output message="tns:simular_financiamentoResponse"/>
+            <input message="simular_financiamentoRequest"/>
+            <output message="simular_financiamentoResponse"/>
         </operation>
         <operation name="excluir_veiculo">
-            <input message="tns:excluir_veiculoRequest"/>
-            <output message="tns:excluir_veiculoResponse"/>
+            <input message="excluir_veiculoRequest"/>
+            <output message="excluir_veiculoResponse"/>
         </operation>
     </portType>
 
