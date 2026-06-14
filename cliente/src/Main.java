@@ -62,7 +62,7 @@ public class Main {
                         System.out.print("ID: ");
                         String idVeic = scanner.nextLine();
                         System.out.print("Entrada: ");
-                        String valorEntrada = scanner.nextLine(); // Renomeado para evitar conflitos
+                        String valorEntrada = scanner.nextLine(); 
                         System.out.print("Parcelas: ");
                         String numParcelas = scanner.nextLine();
 
