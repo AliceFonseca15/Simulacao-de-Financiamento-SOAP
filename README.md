@@ -3,7 +3,7 @@ Projeto desenvolvido em Java (Cliente) e Python (Servidor SOAP) para gerenciamen
 ## Como executar
 
 ### Pré requesitos:
-Java JDK (versão 8 ou superior).
+Java JDK.
 
 Python 3 (com as bibliotecas flask e lxml instaladas).
 
