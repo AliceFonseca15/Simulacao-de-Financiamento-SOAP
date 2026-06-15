@@ -11,20 +11,21 @@ Python 3 (com as bibliotecas flask e lxml instaladas).
 
 1. Instale as dependências
     
-   pip install flask lxml
+       pip install flask lxml
    
 2. Execute o servidor
-   python server.py
+   
+       python server.py
 
 ### Configurando o Cliente (Fronend Terminal - CLI):
 
 1. Compile os arquivos Java na pasta src
    
-   javac -d bin src/**/*.java
+       javac -d bin src/**/*.java
 
 2. Execute a aplicação
    
-   java -cp bin Main
+       java -cp bin Main
 
 ## Funcionalidades
 
